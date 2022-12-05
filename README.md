@@ -9,10 +9,10 @@ To import it simply add:
 To the start of your file.
 ## NOTICE
 If you are using the pyz files add:  
-``import zipimport
-graphics = zipimport.zipimporter("<name>.pyz").load_module("graphics")
-graphite = zipimport.zipimporter("<name>.pyz").load_module("graphite")`` 
-instead
+``import zipimport  
+graphics = zipimport.zipimporter("<name>.pyz").load_module("graphics")  
+graphite = zipimport.zipimporter("<name>.pyz").load_module("graphite")``  
+instead  
 
 ## Screen Object
 The most important part of a graphite gui is the screen object. You cannot create a gui without a window.  
