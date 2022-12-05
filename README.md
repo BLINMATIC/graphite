@@ -6,7 +6,13 @@ Graphite is a graphics api made for the purpose of simplifying graphics.py modul
 Firstly, you need to import graphite.  
 To import it simply add:  
 `import graphite`  
-To the start of your file.  
+To the start of your file.
+## NOTICE
+If you are using the pyz files add:  
+```import zipimport
+graphics = zipimport.zipimporter("<name>.pyz").load_module("graphics")
+graphite = zipimport.zipimporter("<name>.pyz").load_module("graphite")```  
+instead
 
 ## Screen Object
 The most important part of a graphite gui is the screen object. You cannot create a gui without a window.  
