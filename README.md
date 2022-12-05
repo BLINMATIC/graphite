@@ -9,9 +9,9 @@ To import it simply add:
 To the start of your file.
 ## NOTICE
 If you are using the pyz files add:  
-```import zipimport
+``import zipimport
 graphics = zipimport.zipimporter("<name>.pyz").load_module("graphics")
-graphite = zipimport.zipimporter("<name>.pyz").load_module("graphite")```  
+graphite = zipimport.zipimporter("<name>.pyz").load_module("graphite")`` 
 instead
 
 ## Screen Object
