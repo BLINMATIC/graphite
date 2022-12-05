@@ -1,4 +1,4 @@
-# GRAPHITE
+![](./logo.png)
 ## What is Graphite?
 Graphite is a graphics api made for the purpose of simplifying graphics.py module.
 
