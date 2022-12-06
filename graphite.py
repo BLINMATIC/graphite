@@ -1,4 +1,4 @@
-import graphics
+from . import graphics
 import time
 import keyboard
 
@@ -45,13 +45,28 @@ class _Draw:
     def image(self, x, y, image, dest):
         r = graphics.Image(graphics.Point(x, y), image).draw(dest.display)
 
+    def ellipsis(self, x, y, width, height, red, green, blue, dest):
+        r = graphics.Oval(graphics.Point(x, y), graphics.Point(x + width, y + height))
+        r.setFill(graphics.color_rgb(red, green, blue))
+        r.setOutline(graphics.color_rgb(red, green, blue))
+        r.draw(dest.display)
+
 
 class _Input:
-    def __init__(self): pass
+    def __init__(self):
+        self.x = 0
+        self.y = 0
 
     def key(self, name):
         if keyboard.is_pressed(name): return 1
         else: return 0
+
+    def mouse_pos(self, dest):
+        dest.display.master.bind("<Motion>", self._motion)
+        return self.x, self.y
+
+    def _motion(self, event):
+        self.x, self.y = event.x, event.y
 
 
 Draw = _Draw()
