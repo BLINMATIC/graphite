@@ -3,18 +3,11 @@
 Graphite is a graphics api made for the purpose of simplifying graphics.py module.
 
 ## Getting Started
-Firstly, you need to import graphite.  
-To import it simply add:  
-`import graphite`  
-To the start of your file.
+Firstly, you need to go to [the graphite github page](https://github.com/BLINMATIC/graphite) and download version 2.0 from the releases on the right.  
+After you navigated to version 2.0, click on `graphite_1_1.zip`.  
+When downloaded extract the zip file to a new folder in your project called `graphite_1_1`.  
 
-## NOTICE
-If you are using the pyz files add:  
-```
-import zipimport
-graphics = zipimport.zipimporter("<name>.pyz").load_module("graphics")
-graphite = zipimport.zipimporter("<name>.pyz").load_module("graphite")
-```
+To import simply type `from graphite_1_1 import graphite`.
 
 ## Screen Object
 The most important part of a graphite gui is the screen object. You cannot create a gui without a window.  
@@ -63,6 +56,12 @@ Just simply type:
 `graphite.Draw.image(x, y, image, screen)`
 After the screen filling operation.
 
+### Ellipsis
+Since ellipsises and circles are the same thing they are under single function.  
+Just simply type:  
+`graphite.Draw.ellipsis(x, y, width, height, image, red, green, blue, screen)`
+After the screen filling operation.
+
 ## Keys
 To get if a key is being pressed or not, add:  
 ```
@@ -71,3 +70,4 @@ if graphite.Input.key(keyname):
 else:
     code
 ```
+
