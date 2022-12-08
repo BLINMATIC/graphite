@@ -1,73 +1,85 @@
-# GRAPHITE
-## What is Graphite?
-Graphite is a graphics api made for the purpose of simplifying graphics.py module.
+![](https://github.com/BLINMATIC/graphite/raw/legacy/logo.png)
+# Code Template
+```python
+import graphite
 
-## Getting Started
-Firstly, you need to import graphite.  
-To import it simply add:  
-`import graphite`  
-To the start of your file.
+screen = graphite.Screen("icon.png", 640, 480, "Graphite")
+clock = graphite.time.Clock()
 
-## NOTICE
-If you are using the pyz files add:  
+while True:
+    clock.tick(120)
+    screen.fill((255, 255, 255))
+
+    screen.update()
+```  
+The code on the above is the bare minimums for a graphite app.  
+But the graphite module is not just made of these components.  
+# Notes Before Starting
+1) If you see any variable named `rgb` then it means `(red, green, blue)`. Each variable is an integer that goes from 0 to 255
+# Screen
+## Creation Of The Screen
+The screen object is the most important object of a graphite app. The screen object is created with the syntax of:  
+```python
+<name> = graphite.Screen(icon="file.png", width=int, height=int, title="text")
 ```
-import zipimport
-graphics = zipimport.zipimporter("<name>.pyz").load_module("graphics")
-graphite = zipimport.zipimporter("<name>.pyz").load_module("graphite")
+Just note that the following code is outside of the main loop.
+## Screen On The Mainloop
+### Filling The Background With A Color
+To fill the background with a color:
+```python
+<name>.fill(rgb)
 ```
-
-## Screen Object
-The most important part of a graphite gui is the screen object. You cannot create a gui without a window.  
-To create a window:  
-`<name> = graphite.Screen(width, height, title)`  
-Note that if these values are not provided, then it will use the default values of:  
-`width=640, height=480, title="Graphite Window"`
-
-### On The Mainloop
-The screen needs to be updated on the mainloop.  
-To do this add:  
-`<name>.update()`  
-tTo the end of your loop.
-
-### Filling The Screen
-Your screen will automatically get filled with the default Tkinter background. However if you dont want to use it, just simply add:  
-`<name>.fill(red, green, blue)`  
-Each color variable goes from 0 to 255 and gets mixed to create every single color.  
-Note: put this before the update and any other objects
-
-## Clocks And Timings
-if you want your ui to be stable across all computers, then you need to limit the framerate of the display. To do this simply put:  
-`<clock_name> = graphite.Time.Clock()`  
-And add:  
-`<clock_name>.tick(fps)`  
-To the start of the mainloop.
-
-Or if you are lazy, then simply add:  
-`graphite.Time.sleep(miliseconds)`  
-to the start of your mainloop instead.
-
-## Drawing Objects
-### Rectangle
-To draw a rectangle to the screen, simply add:  
-`graphite.Draw.rectangle(x, y, width, height, red, green, blue, screen)`  
-After the screen filling operation.
-
-### Line
-Drawing a line is very similar, simply add:  
-`graphite.Draw.line(x, y, dest_x, dest_y, red, green, blue, screen)`  
-After the screen filling operation.
-
-### Images
-It may come as a suprise but drawing an image is also really simple and can be done in a single line.  
-Just simply type:  
-`graphite.Draw.image(x, y, image, screen)`
-After the screen filling operation.
-
-## Keys
-To get if a key is being pressed or not, add:  
+Note: Is not mandatory.
+### Updating The Screen
+To update the screen use:
+```python
+<name>.update()
 ```
-if graphite.Input.key(keyname):
-    code
-else:
-    code
+Note: Put this in the end of the mainloop.
+## Getting Information Back
+To get the screen info:
+```python
+<name>.get_width() # Returns integer width
+<name>.get_width() # Returns integer height
+<name>.get_title() # Returns string title
+```
+# Timing
+## Wait X Miliseconds
+To wait x miliseconds there are 2 ways to do it:  
+```python
+# 1) Get the precise delay
+graphite.time.wait_precise(int)
+# 2) Get the rounded delay
+graphite.time.wait(int)
+```
+## App Clock
+If you need a clock for any purpose:
+```python
+<name> = graphite.time.Clock()
+
+# MAINLOOP
+while True:
+    <name>.tick(int)
+```
+Note: The clock.tick is recommended to be put into the very top of a mainloop.
+# Drawing Objects
+## Rectangle
+```python
+graphite.draw.rectangle(x, y, width, height, rgb, screen)
+```
+## Line
+```python
+graphite.draw.line(x, y, end_x, end_y, rgb, screen)
+```
+## Circle
+```python
+graphite.draw.ellipsis(x, y, width, width, rgb, screen)
+```
+## Ellipsis
+```python
+graphite.draw.ellipsis(x, y, width, height, rgb, screen)
+```
+## Image
+```python
+graphite.draw.image(x, y, "image.png", screen)
 ```
