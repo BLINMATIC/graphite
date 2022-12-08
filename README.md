@@ -1,4 +1,4 @@
-![](https://github.com/BLINMATIC/graphite/raw/legacy/logo.png)
+![](https://github.com/BLINMATIC/graphite/raw/main/logo.png)
 # Code Template
 ```python
 import graphite
