@@ -16,6 +16,7 @@ The code on the above is the bare minimums for a graphite app.
 But the graphite module is not just made of these components.  
 # Notes Before Starting
 1) If you see any variable named `rgb` then it means `(red, green, blue)`. Each variable is an integer that goes from 0 to 255
+2) There are dependancies in the project. These dependancies are `keyboard` and `PIL`
 # Screen
 ## Creation Of The Screen
 The screen object is the most important object of a graphite app. The screen object is created with the syntax of:  
